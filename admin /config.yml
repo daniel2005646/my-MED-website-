@@ -9,58 +9,54 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
-      - file: "content/home.md"
+      - file: "content/home.json"
         label: "Home Page"
         name: "home"
+        format: "json"
         fields:
           - {label: "Page Title", name: "title", widget: "string"}
 
-          # ─── HERO SECTION ───
+          # HERO
           - label: "Hero Section"
             name: "hero"
             widget: "object"
             collapsed: false
             fields:
-              - {label: "Subtitle", name: "subtitle", widget: "string", default: "MASTER ENGINEERING DESIGN & CONSTRUCTION"}
-              - {label: "Title Line 1", name: "title_line1", widget: "string", default: "Designing today"}
-              - {label: "Title Line 2", name: "title_line2", widget: "string", default: "for your"}
-              - {label: "Highlighted Word", name: "highlight", widget: "string", default: "tomorrow."}
+              - {label: "Subtitle", name: "subtitle", widget: "string"}
+              - {label: "Title Line 1", name: "title_line1", widget: "string"}
+              - {label: "Title Line 2", name: "title_line2", widget: "string"}
+              - {label: "Highlight Word", name: "highlight", widget: "string"}
               - {label: "Description", name: "description", widget: "text"}
               - label: "Primary Button"
                 name: "button_primary"
                 widget: "object"
                 fields:
-                  - {label: "Text", name: "text", widget: "string", default: "Start a project"}
-                  - {label: "Link", name: "url", widget: "string", default: "#contact"}
+                  - {label: "Text", name: "text", widget: "string"}
+                  - {label: "Link", name: "url", widget: "string"}
               - label: "Secondary Button"
                 name: "button_secondary"
                 widget: "object"
                 fields:
-                  - {label: "Text", name: "text", widget: "string", default: "View services"}
-                  - {label: "Link", name: "url", widget: "string", default: "#services"}
-              - {label: "Hero Image", name: "image", widget: "image", default: "assets/img/hero-illustration.png"}
+                  - {label: "Text", name: "text", widget: "string"}
+                  - {label: "Link", name: "url", widget: "string"}
+              - {label: "Hero Image", name: "image", widget: "image"}
 
-          # ─── STATS ───
+          # STATS
           - label: "Stats"
             name: "stats"
             widget: "list"
             fields:
               - {label: "Number", name: "number", widget: "string"}
               - {label: "Label", name: "label", widget: "string"}
-            default:
-              - {number: "5", label: "Core Disciplines"}
-              - {number: "5", label: "Industries Served"}
-              - {number: "", label: "Boksburg"}
-              - {number: "", label: "Gauteng HQ"}
 
-          # ─── SERVICES SECTION ───
+          # SERVICES
           - label: "Services Section"
             name: "services"
             widget: "object"
             collapsed: false
             fields:
-              - {label: "Section Label", name: "section_label", widget: "string", default: "Sec. 01 — Services"}
-              - {label: "Title", name: "title", widget: "string", default: "Drafting and design, discipline by discipline."}
+              - {label: "Section Label", name: "section_label", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
               - {label: "Description", name: "description", widget: "text"}
               - label: "Service Items"
                 name: "items"
@@ -69,5 +65,63 @@ collections:
                   - {label: "Number", name: "number", widget: "string"}
                   - {label: "Title", name: "title", widget: "string"}
                   - {label: "Description", name: "description", widget: "text"}
-                default:
-                  - {number: "01", title: "Piping & Mechanical Drafting", description: "Isometrics, P&IDs, GA layouts and 3D plant modeling for process and mechanical systems."}
+
+          # INDUSTRIES
+          - label: "Industries Section"
+            name: "industries"
+            widget: "object"
+            collapsed: false
+            fields:
+              - {label: "Section Label", name: "section_label", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - label: "Industry List"
+                name: "list"
+                widget: "list"
+                fields:
+                  - {label: "Name", name: "name", widget: "string"}
+
+          # ABOUT
+          - label: "About Section"
+            name: "about"
+            widget: "object"
+            collapsed: false
+            fields:
+              - {label: "Section Label", name: "section_label", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - label: "Who We Are"
+                name: "who_we_are"
+                widget: "object"
+                fields:
+                  - {label: "Heading", name: "heading", widget: "string"}
+                  - {label: "Text", name: "text", widget: "text"}
+              - label: "Vision"
+                name: "vision"
+                widget: "object"
+                fields:
+                  - {label: "Heading", name: "heading", widget: "string"}
+                  - {label: "Text", name: "text", widget: "string"}
+              - label: "Mission"
+                name: "mission"
+                widget: "object"
+                fields:
+                  - {label: "Heading", name: "heading", widget: "string"}
+                  - {label: "Text", name: "text", widget: "string"}
+              - label: "Director"
+                name: "director"
+                widget: "object"
+                fields:
+                  - {label: "Name", name: "name", widget: "string"}
+                  - {label: "Role", name: "role", widget: "string"}
+                  - {label: "Quote", name: "quote", widget: "text"}
+                  - {label: "Photo", name: "photo", widget: "image"}
+
+          # CONTACT
+          - label: "Contact Section"
+            name: "contact"
+            widget: "object"
+            collapsed: false
+            fields:
+              - {label: "Section Label", name: "section_label", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Subtitle", name: "subtitle", widget: "string"}
