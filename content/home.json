@@ -1,5 +1,76 @@
 {
-  "hero_title": "Designing today for your tomorrow.",
-  "hero_description": "MEDAC is a multidisciplinary drawing and design consultancy delivering precision drafting, structural detailing and FEED studies across infrastructure, energy, mining and water sectors.",
-  "hero_button": "Start a project"
+  "title": "MEDAC — Master Engineering Design and Construction",
+  "hero": {
+    "subtitle": "MASTER ENGINEERING DESIGN & CONSTRUCTION",
+    "title_line1": "Designing today",
+    "title_line2": "for your",
+    "highlight": "tomorrow.",
+    "description": "MEDAC is a multidisciplinary drawing and design consultancy delivering precision drafting, structural detailing and FEED studies across infrastructure, energy, mining and water sectors.",
+    "button_primary": {
+      "text": "Start a project",
+      "url": "#contact"
+    },
+    "button_secondary": {
+      "text": "View services",
+      "url": "#services"
+    },
+    "image": "assets/img/hero-illustration.png"
+  },
+  "stats": [
+    { "number": "5", "label": "Core Disciplines" },
+    { "number": "5", "label": "Industries Served" },
+    { "number": "", "label": "Boksburg" },
+    { "number": "", "label": "Gauteng HQ" }
+  ],
+  "services": {
+    "section_label": "Sec. 01 — Services",
+    "title": "Drafting and design, discipline by discipline.",
+    "description": "From concept sketches to construction-ready issue sets, every drawing is coordinated, version controlled and built for the field.",
+    "items": [
+      { "number": "01", "title": "Piping & Mechanical Drafting", "description": "Isometrics, P&IDs, GA layouts and 3D plant modeling for process and mechanical systems." },
+      { "number": "02", "title": "Structural & Civil Drawings", "description": "Reinforced concrete detailing, steel layouts and civil infrastructure plans." },
+      { "number": "03", "title": "Electrical & Instrumentation", "description": "Schematics, loop diagrams, cable routing and panel layouts." },
+      { "number": "04", "title": "FEED", "description": "Front-end engineering design: feasibility studies, conceptual layouts and preliminary engineering." },
+      { "number": "05", "title": "Project Coordination", "description": "Document control, drawing registers, version tracking and inter-discipline coordination." }
+    ]
+  },
+  "industries": {
+    "section_label": "Sec. 02 — Industries",
+    "title": "Sectors we design for.",
+    "description": "Multidisciplinary teams matched to the standards and risk profile of each sector.",
+    "list": [
+      { "name": "Infrastructure & Development" },
+      { "name": "Energy & Power Generation" },
+      { "name": "Oil & Gas" },
+      { "name": "Mining & Metallurgy" },
+      { "name": "Water Treatment" }
+    ]
+  },
+  "about": {
+    "section_label": "Sec. 03 — About",
+    "title": "Who we are.",
+    "who_we_are": {
+      "heading": "Who We Are",
+      "text": "MEDAC is a multidisciplinary drawing and design company serving diverse sectors including infrastructure, energy, mining, oil & gas and water treatment."
+    },
+    "vision": {
+      "heading": "Vision",
+      "text": "Designing today for tomorrow's progress."
+    },
+    "mission": {
+      "heading": "Mission",
+      "text": "To combine technical precision with creative engineering for sustainable, client-focused outcomes."
+    },
+    "director": {
+      "name": "Kgolagano Mogwera",
+      "role": "Founder & Director",
+      "quote": "Founded and directed by Kgolagano Mogwera, MEDAC is built on a foundation of expertise, innovation and reliability.",
+      "photo": "assets/img/director.jpg"
+    }
+  },
+  "contact": {
+    "section_label": "Sec. 04 — Contact",
+    "title": "Let's start your drawing set.",
+    "subtitle": "Reach out with your scope and we'll come back with a plan and timeline."
+  }
 }
