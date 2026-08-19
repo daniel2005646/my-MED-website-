@@ -1,246 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <title>MEDAC — Master Engineering Design and Construction</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<title>MEDAC — Master Engineering Design and Construction</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-  <header id="siteHeader">
-    <a href="#top" class="brand">
-      <span class="brand-mark"><img src="assets/img/logo.svg" alt="MEDAC logo"></span>
-      <span>
-        <span class="brand-name">MEDAC</span><br>
-        <span class="brand-sub">Design & Construction</span>
-      </span>
-    </a>
-    <nav class="links">
-      <a href="#services">Services</a>
-      <a href="#industries">Industries</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <a href="#contact" class="btn btn-accent">Request a Quote</a>
-  </header>
+<header id="siteHeader">
+  <a href="#top" class="brand">
+    <span class="brand-mark"><img src="assets/img/logo.svg" alt="MEDAC logo"></span>
+    <span>
+      <span class="brand-name">MEDAC</span><br>
+      <span class="brand-sub">Design &amp; Construction</span>
+    </span>
+  </a>
+  <nav class="links">
+    <a href="#services">Services</a>
+    <a href="#industries">Industries</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a href="#contact" class="btn btn-accent">Request a Quote</a>
+</header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="wrap">
-      <div class="hero-grid">
-        <div>
-          <p class="hero-eyebrow mono" id="hero-subtitle"></p>
-          <h1 id="hero-title"></h1>
-          <p class="lead" id="hero-desc"></p>
-          <div class="hero-ctas">
-            <a href="#" class="btn btn-accent" id="hero-btn-primary"></a>
-            <a href="#" class="btn btn-ghost" id="hero-btn-secondary"></a>
-          </div>
-          <div class="hero-stats" id="hero-stats"></div>
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="hero-eyebrow mono" id="hero-eyebrow">Master Engineering Design &amp; Construction</span>
+      <h1 id="hero-title">Designing today<br>for your <em>tomorrow.</em></h1>
+      <p class="lead" id="hero-desc">MEDAC is a multidisciplinary drawing and design consultancy delivering precision drafting, structural detailing and FEED studies across infrastructure, energy, mining and water sectors.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-accent" id="hero-btn-primary">Start a project</a>
+        <a href="#services" class="btn btn-ghost" id="hero-btn-secondary">View services</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat" id="hero-stat-0"><b>5</b><span>Core Disciplines</span></div>
+        <div class="hero-stat" id="hero-stat-1"><b>5</b><span>Industries Served</span></div>
+        <div class="hero-stat" id="hero-stat-2"><b>Boksburg</b><span>Gauteng HQ</span></div>
+      </div>
+    </div>
+    <div class="hero-visual crop">
+      <span class="cm-tr"></span><span class="cm-bl"></span>
+      <img src="assets/img/hero.png" alt="MEDAC — engineering, drafting and construction illustration featuring a city skyline, crane and hard hats" id="hero-image">
+    </div>
+  </div>
+</section>
+
+<section class="section section-light" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow mono" id="services-eyebrow">Sec. 01 — Services</span>
+      <h2 id="services-title">Drafting and design, discipline by discipline.</h2>
+      <p id="services-desc">From concept sketches to construction-ready issue sets, every drawing is coordinated, version controlled and built for the field.</p>
+    </div>
+    <div class="services-grid reveal-stag">
+      <div class="service-card reveal" style="--i:0" id="service-0">
+        <span class="service-num mono" id="service-0-num">01</span>
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 8h9a4 4 0 0 1 4 4v8"/><circle cx="19" cy="8" r="3"/><path d="M3 16h4"/></svg>
         </div>
-        <div class="hero-visual crop" id="hero-visual">
-          <img src="" alt="MEDAC engineering illustration" id="hero-image">
-          <span class="cm-tr"></span><span class="cm-bl"></span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section class="section section-light" id="services">
-    <div class="wrap">
-      <span class="eyebrow mono" id="services-label"></span>
-      <div class="section-head">
-        <h2 id="services-title"></h2>
-        <p id="services-desc"></p>
-      </div>
-      <div class="services-grid" id="services-grid"></div>
-    </div>
-  </section>
-
-  <!-- INDUSTRIES -->
-  <section class="section section-dark" id="industries">
-    <div class="wrap">
-      <span class="eyebrow mono" id="industries-label"></span>
-      <div class="section-head">
-        <h2 id="industries-title"></h2>
-        <p id="industries-desc"></p>
-      </div>
-      <div class="industries-strip" id="industries-strip"></div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="section section-light" id="about">
-    <div class="wrap">
-      <span class="eyebrow mono" id="about-label"></span>
-      <div class="section-head">
-        <h2 id="about-title"></h2>
-      </div>
-      <div class="about-grid">
-        <div class="about-text" id="about-text"></div>
-        <div class="glass-card">
-          <img class="ceo-photo" src="" alt="Director" id="director-photo">
-          <h3 id="director-name"></h3>
-          <span class="role" id="director-role"></span>
-          <blockquote id="director-quote"></blockquote>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="section section-light" id="contact">
-    <div class="wrap">
-      <span class="eyebrow mono" id="contact-label"></span>
-      <div class="section-head">
-        <h2 id="contact-title"></h2>
-        <p id="contact-subtitle"></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="titleblock wrap">
-      <div class="tb-cell">
-        <span class="k">Company</span>
-        <span class="v">MEDAC Design & Construction</span>
-      </div>
-      <div class="tb-cell">
-        <span class="k">Location</span>
-        <span class="v">Boksburg, Gauteng</span>
-      </div>
-      <div class="tb-cell">
-        <span class="k">Sectors</span>
-        <span class="v">Infrastructure, Energy, Mining, Water</span>
-      </div>
-      <div class="tb-cell">
-        <span class="k">Year</span>
-        <span class="v">2024</span>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      &copy; MEDAC — Master Engineering Design and Construction. All rights reserved.
-    </div>
-  </footer>
-
-  <script>
-    // Header scroll effect
-    const header = document.getElementById('siteHeader');
-    window.addEventListener('scroll', () => {
-      header.classList.toggle('scrolled', window.scrollY > 40);
-    });
-
-    // Load content from JSON
-    fetch('content/home.json')
-      .then(r => r.json())
-      .then(data => {
-        document.title = data.title;
-
-        // Hero
-        document.getElementById('hero-subtitle').textContent = data.hero.subtitle;
-        document.getElementById('hero-title').innerHTML = data.hero.title_line1 + '<br>' + data.hero.title_line2 + ' <em>' + data.hero.highlight + '</em>';
-        document.getElementById('hero-desc').textContent = data.hero.description;
-        document.getElementById('hero-btn-primary').textContent = data.hero.button_primary.text;
-        document.getElementById('hero-btn-primary').href = data.hero.button_primary.url;
-        document.getElementById('hero-btn-secondary').textContent = data.hero.button_secondary.text;
-        document.getElementById('hero-btn-secondary').href = data.hero.button_secondary.url;
-        document.getElementById('hero-image').src = data.hero.image;
-
-        // Stats
-        const statsContainer = document.getElementById('hero-stats');
-        data.stats.forEach(stat => {
-          const div = document.createElement('div');
-          div.className = 'hero-stat';
-          const num = stat.number ? stat.number : stat.label;
-          const lbl = stat.number ? stat.label : '';
-          div.innerHTML = '<b>' + num + '</b><span>' + lbl + '</span>';
-          statsContainer.appendChild(div);
-        });
-
-        // Services
-        document.getElementById('services-label').textContent = data.services.section_label;
-        document.getElementById('services-title').textContent = data.services.title;
-        document.getElementById('services-desc').textContent = data.services.description;
-        const servicesGrid = document.getElementById('services-grid');
-        const serviceIcons = [
-          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"/><path d="M14 2v6h6"/><path d="M2 15h10"/><path d="M5 12v6"/><path d="M9 12v6"/></svg>',
-          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9h1"/><path d="M9 13h1"/><path d="M9 17h1"/></svg>',
-          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>',
-          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>',
-          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>'
-        ];
-        data.services.items.forEach((item, i) => {
-          const div = document.createElement('div');
-          div.className = 'service-card reveal';
-          div.style.setProperty('--i', i);
-          div.innerHTML = '<span class="service-num">' + item.number + '</span><div class="service-icon">' + (serviceIcons[i] || '') + '</div><h3>' + item.title + '</h3><p>' + item.description + '</p>';
-          servicesGrid.appendChild(div);
-        });
-
-        // Industries
-        document.getElementById('industries-label').textContent = data.industries.section_label;
-        document.getElementById('industries-title').textContent = data.industries.title;
-        document.getElementById('industries-desc').textContent = data.industries.description;
-        const industriesStrip = document.getElementById('industries-strip');
-        const industryIcons = [
-          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg>',
-          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>',
-          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"/><path d="M2 12h20"/><path d="m4.93 4.93 14.14 14.14"/><path d="m19.07 4.93-14.14 14.14"/></svg>',
-          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>',
-          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>'
-        ];
-        data.industries.list.forEach((item, i) => {
-          const div = document.createElement('div');
-          div.className = 'industry-pill reveal';
-          div.style.setProperty('--i', i);
-          div.innerHTML = (industryIcons[i] || '') + '<span>' + item.name + '</span>';
-          industriesStrip.appendChild(div);
-        });
-
-        // About
-        document.getElementById('about-label').textContent = data.about.section_label;
-        document.getElementById('about-title').textContent = data.about.title;
-        const aboutText = document.getElementById('about-text');
-        const aboutBlocks = [
-          { heading: data.about.who_we_are.heading, text: data.about.who_we_are.text },
-          { heading: data.about.vision.heading, text: data.about.vision.text },
-          { heading: data.about.mission.heading, text: data.about.mission.text }
-        ];
-        aboutBlocks.forEach(block => {
-          const div = document.createElement('div');
-          div.className = 'about-block reveal';
-          div.innerHTML = '<span class="label">' + block.heading + '</span><p>' + block.text + '</p>';
-          aboutText.appendChild(div);
-        });
-        document.getElementById('director-photo').src = data.about.director.photo;
-        document.getElementById('director-name').textContent = data.about.director.name;
-        document.getElementById('director-role').textContent = data.about.director.role;
-        document.getElementById('director-quote').textContent = data.about.director.quote;
-
-        // Contact
-        document.getElementById('contact-label').textContent = data.contact.section_label;
-        document.getElementById('contact-title').textContent = data.contact.title;
-        document.getElementById('contact-subtitle').textContent = data.contact.subtitle;
-
-        // Scroll reveal
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-            }
-          });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-      })
-      .catch(err => console.error('Error loading content:', err));
-  </script>
-
-</body>
-</html>
+        <h3 id="service-0-title
