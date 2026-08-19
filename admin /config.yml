@@ -2,25 +2,72 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "assets/img"
-public_folder: "/assets/img"
+media_folder: "assets/img/uploads"
+public_folder: "/assets/img/uploads"
 
 collections:
   - name: "pages"
-    label: "Website Pages"
+    label: "Pages"
     files:
-      - file: "content/home.json"
+      - file: "content/home.md"
         label: "Home Page"
         name: "home"
         fields:
-          - label: "Hero Title"
-            name: "hero_title"
-            widget: "string"
+          - {label: "Page Title", name: "title", widget: "string"}
 
-          - label: "Hero Description"
-            name: "hero_description"
-            widget: "text"
+          # ─── HERO SECTION ───
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            collapsed: false
+            fields:
+              - {label: "Subtitle", name: "subtitle", widget: "string", default: "MASTER ENGINEERING DESIGN & CONSTRUCTION"}
+              - {label: "Title Line 1", name: "title_line1", widget: "string", default: "Designing today"}
+              - {label: "Title Line 2", name: "title_line2", widget: "string", default: "for your"}
+              - {label: "Highlighted Word", name: "highlight", widget: "string", default: "tomorrow."}
+              - {label: "Description", name: "description", widget: "text"}
+              - label: "Primary Button"
+                name: "button_primary"
+                widget: "object"
+                fields:
+                  - {label: "Text", name: "text", widget: "string", default: "Start a project"}
+                  - {label: "Link", name: "url", widget: "string", default: "#contact"}
+              - label: "Secondary Button"
+                name: "button_secondary"
+                widget: "object"
+                fields:
+                  - {label: "Text", name: "text", widget: "string", default: "View services"}
+                  - {label: "Link", name: "url", widget: "string", default: "#services"}
+              - {label: "Hero Image", name: "image", widget: "image", default: "assets/img/hero-illustration.png"}
 
-          - label: "Hero Button"
-            name: "hero_button"
-            widget: "string"
+          # ─── STATS ───
+          - label: "Stats"
+            name: "stats"
+            widget: "list"
+            fields:
+              - {label: "Number", name: "number", widget: "string"}
+              - {label: "Label", name: "label", widget: "string"}
+            default:
+              - {number: "5", label: "Core Disciplines"}
+              - {number: "5", label: "Industries Served"}
+              - {number: "", label: "Boksburg"}
+              - {number: "", label: "Gauteng HQ"}
+
+          # ─── SERVICES SECTION ───
+          - label: "Services Section"
+            name: "services"
+            widget: "object"
+            collapsed: false
+            fields:
+              - {label: "Section Label", name: "section_label", widget: "string", default: "Sec. 01 — Services"}
+              - {label: "Title", name: "title", widget: "string", default: "Drafting and design, discipline by discipline."}
+              - {label: "Description", name: "description", widget: "text"}
+              - label: "Service Items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - {label: "Number", name: "number", widget: "string"}
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
+                default:
+                  - {number: "01", title: "Piping & Mechanical Drafting", description: "Isometrics, P&IDs, GA layouts and 3D plant modeling for process and mechanical systems."}
