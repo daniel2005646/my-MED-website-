@@ -9,10 +9,18 @@ collections:
   - name: "pages"
     label: "Website Pages"
     files:
-      - file: "index.html"
+      - file: "content/home.json"
         label: "Home Page"
         name: "home"
         fields:
-          - label: "Website Content"
-            name: "body"
-            widget: "markdown"
+          - label: "Hero Title"
+            name: "hero_title"
+            widget: "string"
+
+          - label: "Hero Description"
+            name: "hero_description"
+            widget: "text"
+
+          - label: "Hero Button"
+            name: "hero_button"
+            widget: "string"
