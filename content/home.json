@@ -14,7 +14,7 @@
       "text": "View services",
       "url": "#services"
     },
-    "image": "assets/img/hero.png"
+    "/assets/img/hero.png"
   },
   "stats": [
     { "number": "5", "label": "Core Disciplines" },
@@ -65,7 +65,7 @@
       "name": "Kgolagano Mogwera",
       "role": "Founder & Director",
       "quote": "Founded and directed by Kgolagano Mogwera, MEDAC is built on a foundation of expertise, innovation and reliability.",
-      "photo": "assets/img/ceo.jpg"
+      "photo":  "/assets/img/ceo.jpg"
     }
   },
   "contact": {
