@@ -14,7 +14,7 @@
       "text": "View services",
       "url": "#services"
     },
-    "/assets/img/hero.png"
+    "image": "/assets/img/hero.png"
   },
   "stats": [
     { "number": "5", "label": "Core Disciplines" },
