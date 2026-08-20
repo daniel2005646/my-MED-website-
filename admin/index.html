@@ -9,133 +9,92 @@
 <body>
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
   <script>
-    (function() {
-      try {
-        // Load your site CSS into the preview pane
-        CMS.registerPreviewStyle('/assets/css/style.css');
-
-        // Access React through the CMS global
-        var React = window.CMS.React;
-        var h = React.createElement;
-
-        // Preview component using ES6 class
-        class HomePreview extends React.Component {
-          render() {
-            try {
-              var data = this.props.entry.toJS().data || {};
-              var hero = data.hero || {};
-              var services = data.services || {};
-              var industries = data.industries || {};
-              var about = data.about || {};
-              var contact = data.contact || {};
-
-              return h('div', null,
-                // HERO
-                h('section', {className: 'hero', style: {padding: '30px 0'}},
-                  h('div', {className: 'wrap hero-grid'},
-                    h('div', null,
-                      h('span', {className: 'hero-eyebrow mono'}, hero.subtitle || ''),
-                      h('h1', null, (hero.title_line1 || ''), h('br'), (hero.title_line2 || ''), ' ', h('em', null, hero.highlight || '')),
-                      h('p', {className: 'lead'}, hero.description || ''),
-                      h('div', {className: 'hero-ctas'},
-                        h('a', {className: 'btn btn-accent'}, (hero.button_primary && hero.button_primary.text) || 'Start a project'),
-                        h('a', {className: 'btn btn-ghost'}, (hero.button_secondary && hero.button_secondary.text) || 'View services')
-                      )
-                    )
-                  )
-                ),
-
-                // SERVICES
-                h('section', {className: 'section section-light', style: {padding: '30px 0'}},
-                  h('div', {className: 'wrap'},
-                    h('div', {className: 'section-head'},
-                      h('span', {className: 'eyebrow mono'}, services.section_label || ''),
-                      h('h2', null, services.title || ''),
-                      h('p', null, services.description || '')
-                    ),
-                    h('div', {className: 'services-grid'},
-                      (services.items || []).map(function(item, i) {
-                        return h('div', {className: 'service-card', key: i, style: {marginBottom: '12px'}},
-                          h('span', {className: 'service-num mono'}, item.number || ''),
-                          h('h3', null, item.title || ''),
-                          h('p', null, item.description || '')
-                        );
-                      })
-                    )
-                  )
-                ),
-
-                // INDUSTRIES
-                h('section', {className: 'section section-dark', style: {padding: '30px 0'}},
-                  h('div', {className: 'wrap'},
-                    h('div', {className: 'section-head'},
-                      h('span', {className: 'eyebrow mono'}, industries.section_label || ''),
-                      h('h2', null, industries.title || ''),
-                      h('p', null, industries.description || '')
-                    ),
-                    h('div', {className: 'industries-strip'},
-                      (industries.list || []).map(function(item, i) {
-                        return h('div', {className: 'industry-pill', key: i, style: {marginBottom: '10px'}},
-                          h('span', null, item.name || '')
-                        );
-                      })
-                    )
-                  )
-                ),
-
-                // ABOUT
-                h('section', {className: 'section section-light', style: {padding: '30px 0'}},
-                  h('div', {className: 'wrap about-grid'},
-                    h('div', null,
-                      h('div', {className: 'section-head', style: {marginBottom: '24px'}},
-                        h('span', {className: 'eyebrow mono'}, about.section_label || ''),
-                        h('h2', null, about.title || '')
-                      ),
-                      about.who_we_are ? h('div', {className: 'about-block'},
-                        h('span', {className: 'label'}, about.who_we_are.heading || ''),
-                        h('p', null, about.who_we_are.text || '')
-                      ) : null,
-                      about.vision ? h('div', {className: 'about-block'},
-                        h('span', {className: 'label'}, about.vision.heading || ''),
-                        h('p', null, about.vision.text || '')
-                      ) : null,
-                      about.mission ? h('div', {className: 'about-block'},
-                        h('span', {className: 'label'}, about.mission.heading || ''),
-                        h('p', null, about.mission.text || '')
-                      ) : null
-                    ),
-                    about.director ? h('div', {className: 'glass-card'},
-                      h('h3', null, about.director.name || ''),
-                      h('span', {className: 'role'}, about.director.role || ''),
-                      h('blockquote', null, about.director.quote || '')
-                    ) : null
-                  )
-                ),
-
-                // CONTACT
-                h('section', {className: 'section section-dark', style: {padding: '30px 0'}},
-                  h('div', {className: 'wrap'},
-                    h('div', {className: 'section-head'},
-                      h('span', {className: 'eyebrow mono'}, contact.section_label || ''),
-                      h('h2', null, contact.title || ''),
-                      h('p', null, contact.subtitle || '')
-                    )
-                  )
-                )
-              );
-            } catch (err) {
-              return h('div', {style: {color: 'red', padding: '20px'}}, 'Preview render error: ' + err.message);
-            }
-          }
-        }
-
-        CMS.registerPreviewTemplate('home', HomePreview);
-        console.log('Custom preview template registered successfully');
-
-      } catch (err) {
-        console.error('Failed to register preview template:', err);
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof CMS === 'undefined' || !CMS.React) {
+        console.log('CMS preview styling not available');
+        return;
       }
-    })();
+      
+      try {
+        var h = CMS.React.createElement;
+        
+        var HomePreview = function(props) {
+          var data = props.entry.toJS().data || {};
+          var hero = data.hero || {};
+          var services = data.services || {};
+          var industries = data.industries || {};
+          var about = data.about || {};
+          var contact = data.contact || {};
+          
+          var dark = {background:'#10141B', color:'#EDEDEA', padding:'30px'};
+          var light = {background:'#F6F4EF', color:'#12161C', padding:'30px'};
+          var accent = {color:'#F5B400'};
+          var heading = {fontSize:'28px', fontWeight:'700', marginBottom:'12px', fontFamily:'Space Grotesk, sans-serif'};
+          var text = {fontSize:'15px', lineHeight:'1.6', marginBottom:'16px'};
+          var label = {fontSize:'11px', color:'#3D6FA8', textTransform:'uppercase', letterSpacing:'0.06em', marginBottom:'6px', display:'block'};
+          
+          return h('div', {style:{fontFamily:'Inter, sans-serif'}},
+            // HERO
+            h('div', {style:dark},
+              h('span', {style:accent}, hero.subtitle || ''),
+              h('h1', {style:heading}, hero.title_line1, h('br'), hero.title_line2, ' ', h('span', {style:accent}, hero.highlight)),
+              h('p', {style:{...text, color:'#9CA3AF'}}, hero.description)
+            ),
+            
+            // SERVICES
+            h('div', {style:light},
+              h('span', {style:label}, services.section_label),
+              h('h2', {style:heading}, services.title),
+              h('p', {style:text}, services.description),
+              h('div', null, (services.items || []).map(function(item, i) {
+                return h('div', {key:i, style:{background:'#fff', padding:'16px', borderRadius:'12px', marginBottom:'10px', boxShadow:'0 2px 8px rgba(0,0,0,0.08)'}},
+                  h('span', {style:{fontSize:'11px', color:'#d8d5cb', float:'right'}}, item.number),
+                  h('h3', {style:{fontSize:'16px', fontWeight:'600', marginBottom:'6px'}}, item.title),
+                  h('p', {style:{fontSize:'13px', color:'#5B6472', margin:0}}, item.description)
+                );
+              }))
+            ),
+            
+            // INDUSTRIES
+            h('div', {style:dark},
+              h('span', {style:{...label, color:'#F5B400'}}, industries.section_label),
+              h('h2', {style:heading}, industries.title),
+              h('div', {style:{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(140px, 1fr))', gap:'10px'}}, 
+                (industries.list || []).map(function(item, i) {
+                  return h('div', {key:i, style:{background:'rgba(255,255,255,0.04)', border:'1px solid rgba(255,255,255,0.12)', borderRadius:'12px', padding:'16px', textAlign:'center'}}, item.name);
+                })
+              )
+            ),
+            
+            // ABOUT
+            h('div', {style:light},
+              h('span', {style:label}, about.section_label),
+              h('h2', {style:heading}, about.title),
+              about.who_we_are ? h('div', {style:{marginBottom:'16px'}},
+                h('span', {style:label}, about.who_we_are.heading),
+                h('p', {style:text}, about.who_we_are.text)
+              ) : null,
+              about.director ? h('div', {style:{background:'rgba(255,255,255,0.7)', padding:'20px', borderRadius:'16px', backdropFilter:'blur(10px)'}},
+                h('h3', {style:{fontSize:'18px', marginBottom:'4px'}}, about.director.name),
+                h('span', {style:{fontSize:'11px', color:'#5B6472'}}, about.director.role),
+                h('p', {style:{...text, borderLeft:'2px solid #F5B400', paddingLeft:'12px', marginTop:'10px'}}, about.director.quote)
+              ) : null
+            ),
+            
+            // CONTACT
+            h('div', {style:dark},
+              h('span', {style:{...label, color:'#F5B400'}}, contact.section_label),
+              h('h2', {style:heading}, contact.title),
+              h('p', {style:{...text, color:'#9CA3AF'}}, contact.subtitle)
+            )
+          );
+        };
+        
+        CMS.registerPreviewTemplate('home', HomePreview);
+      } catch (err) {
+        console.log('Preview styling skipped:', err.message);
+      }
+    });
   </script>
 </body>
 </html>
