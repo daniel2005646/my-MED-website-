@@ -8,5 +8,201 @@
 </head>
 <body>
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+  <script>
+    CMS.registerPreviewStyle('/assets/css/style.css');
+
+    function esc(str) {
+      return String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    CMS.registerPreviewTemplate('home', function(props) {
+      var data = props.entry.toJS().data || {};
+      var hero = data.hero || {};
+      var stats = data.stats || [];
+      var services = data.services || {};
+      var industries = data.industries || {};
+      var about = data.about || {};
+      var contact = data.contact || {};
+      var h = CMS.React.createElement;
+
+      var heroImage = esc(hero.image || '/assets/img/hero.png');
+      var ceoPhoto = esc((about.director || {}).photo || '/assets/img/ceo.jpg');
+
+      var html = `
+<header id="siteHeader" style="position:relative;">
+  <a href="#top" class="brand">
+    <span class="brand-mark"><img src="/assets/img/logo.svg" alt="MEDAC logo"></span>
+    <span>
+      <span class="brand-name">MEDAC</span><br>
+      <span class="brand-sub">Design &amp; Construction</span>
+    </span>
+  </a>
+  <nav class="links">
+    <a href="#services">Services</a>
+    <a href="#industries">Industries</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a href="#contact" class="btn btn-accent">Request a Quote</a>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="hero-eyebrow mono">${esc(hero.subtitle)}</span>
+      <h1>${esc(hero.title_line1)}<br>${esc(hero.title_line2)} <em>${esc(hero.highlight)}</em></h1>
+      <p class="lead">${esc(hero.description)}</p>
+      <div class="hero-ctas">
+        <a href="${esc((hero.button_primary || {}).url || '#contact')}" class="btn btn-accent">${esc((hero.button_primary || {}).text || 'Start a project')}</a>
+        <a href="${esc((hero.button_secondary || {}).url || '#services')}" class="btn btn-ghost">${esc((hero.button_secondary || {}).text || 'View services')}</a>
+      </div>
+      <div class="hero-stats">
+        ${stats.map(function(stat, i) {
+          var num = esc(stat.number || stat.label || '');
+          var lbl = esc(stat.number ? stat.label : '');
+          return '<div class="hero-stat"><b>' + num + '</b><span>' + lbl + '</span></div>';
+        }).join('')}
+      </div>
+    </div>
+    <div class="hero-visual crop">
+      <span class="cm-tr"></span><span class="cm-bl"></span>
+      <img src="${heroImage}" alt="MEDAC engineering illustration">
+    </div>
+  </div>
+</section>
+
+<section class="section section-light" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow mono">${esc(services.section_label)}</span>
+      <h2>${esc(services.title)}</h2>
+      <p>${esc(services.description)}</p>
+    </div>
+    <div class="services-grid">
+      ${(services.items || []).map(function(item, i) {
+        var svgs = [
+          '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 8h9a4 4 0 0 1 4 4v8"/><circle cx="19" cy="8" r="3"/><path d="M3 16h4"/></svg>',
+          '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 20V6l8-3 8 3v14"/><path d="M4 20h16"/><path d="M9 20v-6h6v6"/></svg>',
+          '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg>',
+          '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>',
+          '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="4"/><rect x="4" y="10" width="16" height="4"/><rect x="4" y="16" width="10" height="4"/></svg>'
+        ];
+        return '<div class="service-card" style="--i:' + i + '">' +
+          '<span class="service-num mono">' + esc(item.number) + '</span>' +
+          '<div class="service-icon">' + (svgs[i] || '') + '</div>' +
+          '<h3>' + esc(item.title) + '</h3>' +
+          '<p>' + esc(item.description) + '</p>' +
+        '</div>';
+      }).join('')}
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark" id="industries">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow mono">${esc(industries.section_label)}</span>
+      <h2>${esc(industries.title)}</h2>
+      <p>${esc(industries.description)}</p>
+    </div>
+    <div class="industries-strip">
+      ${(industries.list || []).map(function(item, i) {
+        var svgs = [
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M6 21V9l6-4 6 4v12M10 21v-6h4v6"/></svg>',
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg>',
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v6M8 8h8l3 13H5L8 8Z"/></svg>',
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21 10 3l4 8 3-4 3 14H4Z"/></svg>',
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3s6 6.5 6 11a6 6 0 1 1-12 0c0-4.5 6-11 6-11Z"/></svg>'
+        ];
+        return '<div class="industry-pill" style="--i:' + i + '">' +
+          (svgs[i] || '') +
+          '<span>' + esc(item.name) + '</span>' +
+        '</div>';
+      }).join('')}
+    </div>
+  </div>
+</section>
+
+<section class="section section-light" id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="section-head" style="margin-bottom:36px;">
+        <span class="eyebrow mono">${esc(about.section_label)}</span>
+        <h2>${esc(about.title)}</h2>
+      </div>
+      ${about.who_we_are ? '<div class="about-block"><span class="label">' + esc(about.who_we_are.heading) + '</span><p>' + esc(about.who_we_are.text) + '</p></div>' : ''}
+      ${about.vision ? '<div class="about-block"><span class="label">' + esc(about.vision.heading) + '</span><p>' + esc(about.vision.text) + '</p></div>' : ''}
+      ${about.mission ? '<div class="about-block"><span class="label">' + esc(about.mission.heading) + '</span><p>' + esc(about.mission.text) + '</p></div>' : ''}
+    </div>
+    <div class="glass-card">
+      <img class="ceo-photo" src="${ceoPhoto}" alt="${esc((about.director || {}).name || 'Director')}">
+      <h3>${esc((about.director || {}).name)}</h3>
+      <span class="role">${esc((about.director || {}).role)}</span>
+      <blockquote>${esc((about.director || {}).quote)}</blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark" id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow mono">${esc(contact.section_label)}</span>
+      <h2>${esc(contact.title)}</h2>
+      <p>${esc(contact.subtitle)}</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <span class="k">Phone</span>
+        <a class="v" href="tel:+27692419911">069 241 9911</a>
+        <p class="sub">Mon–Fri, 08:00–17:00 SAST</p>
+      </div>
+      <div class="contact-card">
+        <span class="k">Email</span>
+        <a class="v" href="mailto:masterengineeringdesignandcons@gmail.com" style="font-size:15px;">masterengineeringdesignandcons@gmail.com</a>
+        <p class="sub">We reply within one business day</p>
+      </div>
+      <div class="contact-card" style="grid-column:1/-1;">
+        <span class="k">Location — Boksburg Branch</span>
+        <span class="v" style="font-size:15px;">10 Top Road, Anderbolt, Boksburg, Gauteng, 1459</span>
+      </div>
+      <div class="contact-cta">
+        <div>
+          <h3>Ready to talk through your project?</h3>
+          <p>Send us your scope and we'll size the drawing package.</p>
+        </div>
+        <a href="mailto:masterengineeringdesignandcons@gmail.com" class="btn btn-accent">Email MEDAC</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px;padding-bottom:36px;">
+      <div>
+        <span class="brand-name" style="color:#fff;">MEDAC</span>
+        <p style="max-width:340px;font-size:13.5px;margin-top:10px;">Master Engineering Design and Construction — designing today for your tomorrow.</p>
+      </div>
+      <nav style="display:flex;gap:28px;font-size:13.5px;">
+        <a href="#services">Services</a>
+        <a href="#industries">Industries</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
+  <div class="titleblock">
+    <div class="tb-cell"><span class="k">Company</span><span class="v">Master Engineering Design and Construction</span></div>
+    <div class="tb-cell"><span class="k">Drawing No.</span><span class="v">MEDAC-WEB-01</span></div>
+    <div class="tb-cell"><span class="k">Branch</span><span class="v">Boksburg, Gauteng</span></div>
+    <div class="tb-cell"><span class="k">Rev.</span><span class="v">2024</span></div>
+  </div>
+  <div class="foot-bottom">© 2024 MEDAC — Master Engineering Design and Construction. All rights reserved.</div>
+</footer>
+`;
+
+      return h('div', {dangerouslySetInnerHTML: {__html: html}});
+    });
+  </script>
 </body>
 </html>
