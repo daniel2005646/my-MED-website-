@@ -8,5 +8,134 @@
 </head>
 <body>
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+  <script>
+    (function() {
+      try {
+        // Load your site CSS into the preview pane
+        CMS.registerPreviewStyle('/assets/css/style.css');
+
+        // Access React through the CMS global
+        var React = window.CMS.React;
+        var h = React.createElement;
+
+        // Preview component using ES6 class
+        class HomePreview extends React.Component {
+          render() {
+            try {
+              var data = this.props.entry.toJS().data || {};
+              var hero = data.hero || {};
+              var services = data.services || {};
+              var industries = data.industries || {};
+              var about = data.about || {};
+              var contact = data.contact || {};
+
+              return h('div', null,
+                // HERO
+                h('section', {className: 'hero', style: {padding: '30px 0'}},
+                  h('div', {className: 'wrap hero-grid'},
+                    h('div', null,
+                      h('span', {className: 'hero-eyebrow mono'}, hero.subtitle || ''),
+                      h('h1', null, (hero.title_line1 || ''), h('br'), (hero.title_line2 || ''), ' ', h('em', null, hero.highlight || '')),
+                      h('p', {className: 'lead'}, hero.description || ''),
+                      h('div', {className: 'hero-ctas'},
+                        h('a', {className: 'btn btn-accent'}, (hero.button_primary && hero.button_primary.text) || 'Start a project'),
+                        h('a', {className: 'btn btn-ghost'}, (hero.button_secondary && hero.button_secondary.text) || 'View services')
+                      )
+                    )
+                  )
+                ),
+
+                // SERVICES
+                h('section', {className: 'section section-light', style: {padding: '30px 0'}},
+                  h('div', {className: 'wrap'},
+                    h('div', {className: 'section-head'},
+                      h('span', {className: 'eyebrow mono'}, services.section_label || ''),
+                      h('h2', null, services.title || ''),
+                      h('p', null, services.description || '')
+                    ),
+                    h('div', {className: 'services-grid'},
+                      (services.items || []).map(function(item, i) {
+                        return h('div', {className: 'service-card', key: i, style: {marginBottom: '12px'}},
+                          h('span', {className: 'service-num mono'}, item.number || ''),
+                          h('h3', null, item.title || ''),
+                          h('p', null, item.description || '')
+                        );
+                      })
+                    )
+                  )
+                ),
+
+                // INDUSTRIES
+                h('section', {className: 'section section-dark', style: {padding: '30px 0'}},
+                  h('div', {className: 'wrap'},
+                    h('div', {className: 'section-head'},
+                      h('span', {className: 'eyebrow mono'}, industries.section_label || ''),
+                      h('h2', null, industries.title || ''),
+                      h('p', null, industries.description || '')
+                    ),
+                    h('div', {className: 'industries-strip'},
+                      (industries.list || []).map(function(item, i) {
+                        return h('div', {className: 'industry-pill', key: i, style: {marginBottom: '10px'}},
+                          h('span', null, item.name || '')
+                        );
+                      })
+                    )
+                  )
+                ),
+
+                // ABOUT
+                h('section', {className: 'section section-light', style: {padding: '30px 0'}},
+                  h('div', {className: 'wrap about-grid'},
+                    h('div', null,
+                      h('div', {className: 'section-head', style: {marginBottom: '24px'}},
+                        h('span', {className: 'eyebrow mono'}, about.section_label || ''),
+                        h('h2', null, about.title || '')
+                      ),
+                      about.who_we_are ? h('div', {className: 'about-block'},
+                        h('span', {className: 'label'}, about.who_we_are.heading || ''),
+                        h('p', null, about.who_we_are.text || '')
+                      ) : null,
+                      about.vision ? h('div', {className: 'about-block'},
+                        h('span', {className: 'label'}, about.vision.heading || ''),
+                        h('p', null, about.vision.text || '')
+                      ) : null,
+                      about.mission ? h('div', {className: 'about-block'},
+                        h('span', {className: 'label'}, about.mission.heading || ''),
+                        h('p', null, about.mission.text || '')
+                      ) : null
+                    ),
+                    about.director ? h('div', {className: 'glass-card'},
+                      h('h3', null, about.director.name || ''),
+                      h('span', {className: 'role'}, about.director.role || ''),
+                      h('blockquote', null, about.director.quote || '')
+                    ) : null
+                  )
+                ),
+
+                // CONTACT
+                h('section', {className: 'section section-dark', style: {padding: '30px 0'}},
+                  h('div', {className: 'wrap'},
+                    h('div', {className: 'section-head'},
+                      h('span', {className: 'eyebrow mono'}, contact.section_label || ''),
+                      h('h2', null, contact.title || ''),
+                      h('p', null, contact.subtitle || '')
+                    )
+                  )
+                )
+              );
+            } catch (err) {
+              return h('div', {style: {color: 'red', padding: '20px'}}, 'Preview render error: ' + err.message);
+            }
+          }
+        }
+
+        CMS.registerPreviewTemplate('home', HomePreview);
+        console.log('Custom preview template registered successfully');
+
+      } catch (err) {
+        console.error('Failed to register preview template:', err);
+      }
+    })();
+  </script>
 </body>
 </html>
