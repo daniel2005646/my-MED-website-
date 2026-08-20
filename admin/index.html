@@ -8,5 +8,135 @@
 </head>
 <body>
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+  <script>
+    // Load your site's CSS in the preview pane
+    CMS.registerPreviewStyle('/assets/css/style.css');
+
+    // Helper to safely get nested data
+    function get(obj, path, fallback) {
+      return path.split('.').reduce(function(acc, key) {
+        return acc && acc[key] !== undefined ? acc[key] : fallback;
+      }, obj);
+    }
+
+    // Custom preview that renders JSON data like the live site
+    function HomePreview(props) {
+      var data = props.entry.toJS().data || {};
+      var hero = data.hero || {};
+      var stats = data.stats || [];
+      var services = data.services || {};
+      var industries = data.industries || {};
+      var about = data.about || {};
+      var contact = data.contact || {};
+      var h = React.createElement;
+
+      // Hero
+      var heroSection = h('section', {className: 'hero', style: {padding: '40px 0'}},
+        h('div', {className: 'wrap hero-grid'},
+          h('div', null,
+            h('span', {className: 'hero-eyebrow mono'}, hero.subtitle),
+            h('h1', null, hero.title_line1, h('br'), hero.title_line2, ' ', h('em', null, hero.highlight)),
+            h('p', {className: 'lead'}, hero.description),
+            h('div', {className: 'hero-ctas'},
+              h('a', {className: 'btn btn-accent'}, get(hero, 'button_primary.text', 'Start a project')),
+              h('a', {className: 'btn btn-ghost'}, get(hero, 'button_secondary.text', 'View services'))
+            ),
+            h('div', {className: 'hero-stats'},
+              stats.map(function(stat, i) {
+                return h('div', {className: 'hero-stat', key: i},
+                  h('b', null, stat.number || stat.label),
+                  h('span', null, stat.number ? stat.label : '')
+                );
+              })
+            )
+          )
+        )
+      );
+
+      // Services
+      var serviceItems = get(services, 'items', []);
+      var servicesSection = h('section', {className: 'section section-light', style: {padding: '40px 0'}},
+        h('div', {className: 'wrap'},
+          h('div', {className: 'section-head'},
+            h('span', {className: 'eyebrow mono'}, services.section_label),
+            h('h2', null, services.title),
+            h('p', null, services.description)
+          ),
+          h('div', {className: 'services-grid'},
+            serviceItems.map(function(item, i) {
+              return h('div', {className: 'service-card', key: i, style: {marginBottom: '16px'}},
+                h('span', {className: 'service-num mono'}, item.number),
+                h('h3', null, item.title),
+                h('p', null, item.description)
+              );
+            })
+          )
+        )
+      );
+
+      // Industries
+      var industryList = get(industries, 'list', []);
+      var industriesSection = h('section', {className: 'section section-dark', style: {padding: '40px 0'}},
+        h('div', {className: 'wrap'},
+          h('div', {className: 'section-head'},
+            h('span', {className: 'eyebrow mono'}, industries.section_label),
+            h('h2', null, industries.title),
+            h('p', null, industries.description)
+          ),
+          h('div', {className: 'industries-strip'},
+            industryList.map(function(item, i) {
+              return h('div', {className: 'industry-pill', key: i, style: {marginBottom: '12px'}},
+                h('span', null, item.name)
+              );
+            })
+          )
+        )
+      );
+
+      // About
+      var aboutSection = h('section', {className: 'section section-light', style: {padding: '40px 0'}},
+        h('div', {className: 'wrap about-grid'},
+          h('div', null,
+            h('div', {className: 'section-head', style: {marginBottom: '36px'}},
+              h('span', {className: 'eyebrow mono'}, about.section_label),
+              h('h2', null, about.title)
+            ),
+            about.who_we_are ? h('div', {className: 'about-block'},
+              h('span', {className: 'label'}, about.who_we_are.heading),
+              h('p', null, about.who_we_are.text)
+            ) : null,
+            about.vision ? h('div', {className: 'about-block'},
+              h('span', {className: 'label'}, about.vision.heading),
+              h('p', null, about.vision.text)
+            ) : null,
+            about.mission ? h('div', {className: 'about-block'},
+              h('span', {className: 'label'}, about.mission.heading),
+              h('p', null, about.mission.text)
+            ) : null
+          ),
+          about.director ? h('div', {className: 'glass-card'},
+            h('h3', null, about.director.name),
+            h('span', {className: 'role'}, about.director.role),
+            h('blockquote', null, about.director.quote)
+          ) : null
+        )
+      );
+
+      // Contact
+      var contactSection = h('section', {className: 'section section-dark', style: {padding: '40px 0'}},
+        h('div', {className: 'wrap'},
+          h('div', {className: 'section-head'},
+            h('span', {className: 'eyebrow mono'}, contact.section_label),
+            h('h2', null, contact.title),
+            h('p', null, contact.subtitle)
+          )
+        )
+      );
+
+      return h('div', null, heroSection, servicesSection, industriesSection, aboutSection, contactSection);
+    }
+
+    CMS.registerPreviewTemplate('home', HomePreview);
+  </script>
 </body>
 </html>
