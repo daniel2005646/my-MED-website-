@@ -19,6 +19,9 @@
       }, obj);
     }
 
+    // Use CMS.React which is available in the preview context
+    var h = CMS.React.createElement;
+
     // Custom preview that renders JSON data like the live site
     function HomePreview(props) {
       var data = props.entry.toJS().data || {};
@@ -28,7 +31,6 @@
       var industries = data.industries || {};
       var about = data.about || {};
       var contact = data.contact || {};
-      var h = React.createElement;
 
       // Hero
       var heroSection = h('section', {className: 'hero', style: {padding: '40px 0'}},
