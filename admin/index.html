@@ -1,12 +1,238 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Content Manager</title>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MEDAC — Master Engineering Design and Construction</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+
+<header id="siteHeader">
+  <a href="#top" class="brand">
+    <span class="brand-mark"><img src="assets/img/logo.svg" alt="MEDAC logo"></span>
+    <span>
+      <span class="brand-name">MEDAC</span><br>
+      <span class="brand-sub">Design &amp; Construction</span>
+    </span>
+  </a>
+  <nav class="links">
+    <a href="#services">Services</a>
+    <a href="#industries">Industries</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a href="#contact" class="btn btn-accent">Request a Quote</a>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="hero-eyebrow mono">Master Engineering Design &amp; Construction</span>
+      <h1>Designing today<br>for your <em>tomorrow.</em></h1>
+      <p class="lead">MEDAC is a multidisciplinary drawing and design consultancy delivering precision drafting, structural detailing and FEED studies across infrastructure, energy, mining and water sectors.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-accent">Start a project</a>
+        <a href="#services" class="btn btn-ghost">View services</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><b>5</b><span>Core Disciplines</span></div>
+        <div class="hero-stat"><b>5</b><span>Industries Served</span></div>
+        <div class="hero-stat"><b>Boksburg</b><span>Gauteng HQ</span></div>
+      </div>
+    </div>
+    <div class="hero-visual crop">
+      <span class="cm-tr"></span><span class="cm-bl"></span>
+      <img src="assets/img/hero.png" alt="MEDAC — engineering, drafting and construction illustration featuring a city skyline, crane and hard hats">
+    </div>
+  </div>
+</section>
+
+<section class="section section-light" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow mono">Sec. 01 — Services</span>
+      <h2>Drafting and design, discipline by discipline.</h2>
+      <p>From concept sketches to construction-ready issue sets, every drawing is coordinated, version controlled and built for the field.</p>
+    </div>
+    <div class="services-grid reveal-stag">
+      <div class="service-card reveal" style="--i:0">
+        <span class="service-num mono">01</span>
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 8h9a4 4 0 0 1 4 4v8"/><circle cx="19" cy="8" r="3"/><path d="M3 16h4"/></svg>
+        </div>
+        <h3>Piping &amp; Mechanical Drafting</h3>
+        <p>Isometrics, P&amp;IDs, GA layouts and 3D plant modeling for process and mechanical systems.</p>
+      </div>
+      <div class="service-card reveal" style="--i:1">
+        <span class="service-num mono">02</span>
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 20V6l8-3 8 3v14"/><path d="M4 20h16"/><path d="M9 20v-6h6v6"/></svg>
+        </div>
+        <h3>Structural &amp; Civil Drawings</h3>
+        <p>Reinforced concrete detailing, steel layouts and civil infrastructure plans.</p>
+      </div>
+      <div class="service-card reveal" style="--i:2">
+        <span class="service-num mono">03</span>
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg>
+        </div>
+        <h3>Electrical &amp; Instrumentation</h3>
+        <p>Schematics, loop diagrams, cable routing and panel layouts.</p>
+      </div>
+      <div class="service-card reveal" style="--i:3">
+        <span class="service-num mono">04</span>
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+        <h3>FEED</h3>
+        <p>Front-end engineering design: feasibility studies, conceptual layouts and preliminary engineering.</p>
+      </div>
+      <div class="service-card reveal" style="--i:4">
+        <span class="service-num mono">05</span>
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="4"/><rect x="4" y="10" width="16" height="4"/><rect x="4" y="16" width="10" height="4"/></svg>
+        </div>
+        <h3>Project Coordination</h3>
+        <p>Document control, drawing registers, version tracking and inter-discipline coordination.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark" id="industries">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow mono">Sec. 02 — Industries</span>
+      <h2>Sectors we design for.</h2>
+      <p>Multidisciplinary teams matched to the standards and risk profile of each sector.</p>
+    </div>
+    <div class="industries-strip reveal-stag">
+      <div class="industry-pill reveal" style="--i:0">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M6 21V9l6-4 6 4v12M10 21v-6h4v6"/></svg>
+        <span>Infrastructure &amp; Development</span>
+      </div>
+      <div class="industry-pill reveal" style="--i:1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg>
+        <span>Energy &amp; Power Generation</span>
+      </div>
+      <div class="industry-pill reveal" style="--i:2">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v6M8 8h8l3 13H5L8 8Z"/></svg>
+        <span>Oil &amp; Gas</span>
+      </div>
+      <div class="industry-pill reveal" style="--i:3">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21 10 3l4 8 3-4 3 14H4Z"/></svg>
+        <span>Mining &amp; Metallurgy</span>
+      </div>
+      <div class="industry-pill reveal" style="--i:4">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3s6 6.5 6 11a6 6 0 1 1-12 0c0-4.5 6-11 6-11Z"/></svg>
+        <span>Water Treatment</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light" id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="section-head reveal" style="margin-bottom:36px;">
+        <span class="eyebrow mono">Sec. 03 — About</span>
+        <h2>Who we are.</h2>
+      </div>
+      <div class="about-block reveal">
+        <span class="label">Who We Are</span>
+        <p>MEDAC is a multidisciplinary drawing and design company serving diverse sectors including infrastructure, energy, mining, oil &amp; gas and water treatment.</p>
+      </div>
+      <div class="about-block reveal">
+        <span class="label">Vision</span>
+        <p>Designing today for tomorrow's progress.</p>
+      </div>
+      <div class="about-block reveal">
+        <span class="label">Mission</span>
+        <p>To combine technical precision with creative engineering for sustainable, client-focused outcomes.</p>
+      </div>
+    </div>
+    <div class="glass-card reveal">
+      <img class="ceo-photo" src="assets/img/ceo.jpg" alt="Kgolagano Mogwera, Founder and Director of MEDAC">
+      <h3>Kgolagano Mogwera</h3>
+      <span class="role">Founder &amp; Director</span>
+      <blockquote>Founded and directed by Kgolagano Mogwera, MEDAC is built on a foundation of expertise, innovation and reliability.</blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark" id="contact">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow mono">Sec. 04 — Contact</span>
+      <h2>Let's start your drawing set.</h2>
+      <p>Reach out with your scope and we'll come back with a plan and timeline.</p>
+    </div>
+    <div class="contact-grid reveal-stag">
+      <div class="contact-card reveal" style="--i:0">
+        <span class="k">Phone</span>
+        <a class="v" href="tel:+27692419911">069 241 9911</a>
+        <p class="sub">Mon–Fri, 08:00–17:00 SAST</p>
+      </div>
+      <div class="contact-card reveal" style="--i:1">
+        <span class="k">Email</span>
+        <a class="v" href="mailto:masterengineeringdesignandcons@gmail.com" style="font-size:15px;">masterengineeringdesignandcons@gmail.com</a>
+        <p class="sub">We reply within one business day</p>
+      </div>
+      <div class="contact-card reveal" style="--i:2;grid-column:1/-1;">
+        <span class="k">Location — Boksburg Branch</span>
+        <span class="v" style="font-size:15px;">10 Top Road, Anderbolt, Boksburg, Gauteng, 1459</span>
+      </div>
+      <div class="contact-cta reveal" style="--i:3">
+        <div>
+          <h3>Ready to talk through your project?</h3>
+          <p>Send us your scope and we'll size the drawing package.</p>
+        </div>
+        <a href="mailto:masterengineeringdesignandcons@gmail.com" class="btn btn-accent">Email MEDAC</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px;padding-bottom:36px;">
+      <div>
+        <span class="brand-name" style="color:#fff;">MEDAC</span>
+        <p style="max-width:340px;font-size:13.5px;margin-top:10px;">Master Engineering Design and Construction — designing today for your tomorrow.</p>
+      </div>
+      <nav style="display:flex;gap:28px;font-size:13.5px;">
+        <a href="#services">Services</a>
+        <a href="#industries">Industries</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
+  <div class="titleblock">
+    <div class="tb-cell">
+      <span class="k">Company</span>
+      <span class="v">Master Engineering Design and Construction</span>
+    </div>
+    <div class="tb-cell">
+      <span class="k">Drawing No.</span>
+      <span class="v">MEDAC-WEB-01</span>
+    </div>
+    <div class="tb-cell">
+      <span class="k">Branch</span>
+      <span class="v">Boksburg, Gauteng</span>
+    </div>
+    <div class="tb-cell">
+      <span class="k">Rev.</span>
+      <span class="v" id="revDate"></span>
+    </div>
+  </div>
+  <div class="foot-bottom">© <span id="year"></span> MEDAC — Master Engineering Design and Construction. All rights reserved.</div>
+</footer>
+
+<script src="assets/js/main.js"></script>
 </body>
 </html>
